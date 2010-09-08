@@ -74,7 +74,7 @@ module AuthlogicOauth2
         super(&block)
       end
 
-    private
+    
 
       def authenticating_with_oauth2?
         return false if authenticating_with_unauthorized_record?
@@ -83,7 +83,8 @@ module AuthlogicOauth2
         # When the oauth2 provider responds and we made the initial request
         (oauth2_response && controller.session && controller.session[:oauth2_request_class] == self.class.name)
       end
-
+      
+      private
       def authenticate_with_oauth2
         if @record
           self.attempted_record = record
